@@ -36,5 +36,6 @@ def add_user():
     return render_template("add_user.html")
 
 if __name__ == "__main__":
-    db.create_all()
+    with app.app_context():
+        db.create_all()  # Create the database tables (inside the app context)
     app.run(debug=True)
